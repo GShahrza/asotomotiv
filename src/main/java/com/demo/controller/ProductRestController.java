@@ -4,6 +4,8 @@ import com.demo.dto.ProductDTO;
 import com.demo.entity.Product;
 import com.demo.service.inter.ProductServiceInter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,13 +27,10 @@ public class ProductRestController {
     }
 
     @PostMapping("/add")
-    public Boolean addProduct(@RequestBody Product product){
-        System.out.println(product);
-//        product.setId(73);
-//        product.getPhoto().setId(68);
+    public Boolean addProduct(@RequestBody Product product)
+    {
         return productService.addAndUpdateProduct(product);
     }
-
     @GetMapping("/getAll")
     public List<ProductDTO> getAllProducts(){
         return productService.getAllProducts();
