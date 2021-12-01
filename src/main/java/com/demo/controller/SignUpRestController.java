@@ -30,10 +30,5 @@ public class SignUpRestController {
         return sendingEmailService.verificationCode(code);
 
     }
-    @Secured("permitAll")
-     @GetMapping("/test")
-    public String getTest()
-    {
-        return "Hello Rza";
-    }
+   
 }
