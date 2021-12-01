@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "*",allowedHeaders = "*",methods = RequestMethod.POST)
+@CrossOrigin(origins = "*",allowedHeaders = "*",methods = {RequestMethod.GET,RequestMethod.POST})
 public class SignUpRestController {
 
     private final SendingEmailService sendingEmailService;
@@ -30,4 +30,5 @@ public class SignUpRestController {
         return sendingEmailService.verificationCode(code);
 
     }
+   
 }
